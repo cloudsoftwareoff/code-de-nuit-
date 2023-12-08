@@ -1,0 +1,80 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Problem</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>**
+
+<!-- Content -->
+<div class="container mt-4">
+    <h2>Submit a New Problem</h2>
+    <form method="post" action="{{ url_for('submit_solution') }}">
+       <!-- Problem dropdown -->
+       <div class="form-group">
+        <label for="problemSelect">Select a Problem:</label>
+        <select class="form-control" id="problemSelect" name="problem_id">
+            {% for problem in problems %}
+                <option value="{{ problem.id }}" data-index="{{ loop.index0 }}">{{ problem[1] }}</option>
+            {% endfor %}
+        
+        </select>
+    </div>
+
+        <!-- Description textarea -->
+        <div class="form-group">
+            <label for="descriptionTextarea">Solution Description:</label>
+            <textarea class="form-control" id="descriptionTextarea" name="solution_description" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="languageSelect">Select Language:</label>
+            <select class="form-control" id="languageSelect" name="language">
+                <option value="python">Python</option>
+                <option value="java">Java</option>
+                <option value="javascript">JavaScript</option>
+                <option value="csharp">C#</option>
+                <!-- Add more options as needed -->
+        
+                <!-- Other option with input field -->
+                <option value="other">Other</option>
+            </select>
+            
+            <!-- Input field for "Other" option -->
+            <div id="otherLanguageInput" style="display: none;">
+                <label for="otherLanguageInput">Other Language:</label>
+                <input type="text" class="form-control" id="otherLanguageInput" name="other_language">
+            </div>
+        </div>
+
+        <!-- GitHub link input -->
+        <div class="form-group">
+            <label for="githubLinkInput">GitHub Link:</label>
+            <input type="text" class="form-control" id="githubLinkInput" name="github_link">
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<!-- Add Bootstrap JS and Popper.js scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+<script>
+    document.getElementById('languageSelect').addEventListener('change', function() {
+        var otherLanguageInput = document.getElementById('otherLanguageInput');
+        otherLanguageInput.style.display = this.value === 'other' ? 'block' : 'none';
+    });
+</script>

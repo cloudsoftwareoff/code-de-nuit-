@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeChallengeHub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to CodeChallengeHub</h1>
+            <p>Your platform for engaging coding challenges!</p>
+        </header>
+
+        <main>
+            <section id="about">
+                <h2>About CodeChallengeHub</h2>
+                <p>
+                    CodeChallengeHub is a platform designed to make coding challenges fun and educational.
+                    Join us to explore exciting coding tasks, challenge your skills, and learn from your peers.
+                </p>
+            </section>
+
+            <section id="auth">
+                <h2>Get Started</h2>
+                <div class="auth-buttons">
+                    <a href="{{ url_for('login') }}" class="btn">Login</a>
+                    <a href="{{ url_for('signup') }}" class="btn">Sign Up</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 CodeChallengeHub</p>
+        </footer>
+    </div>
+</body>
+</html>

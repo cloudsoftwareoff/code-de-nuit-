@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+</head>
+<body>
+    <h1>Users</h1>
+    <ul>
+        {%print(users)%}
+        {% for user in users %}
+            <li>
+                <strong>User ID:</strong> {{ user[0] }}<br>
+                <strong>Username:</strong> {{ user[1] }}<br>
+                <strong>Email:</strong> {{ user[2] }}<br>
+                <strong>Password:</strong> {{ user[3] }}<br>
+                <strong>User Token:</strong> {{ user[4] }}<br>
+                <strong>Created At:</strong> {{ user[5] }}<br>
+                
+                <!-- Add a form with a button to delete the user -->
+                <form method="post" action="{{ url_for('delete_user', user_id=user[0]) }}">
+                    <button type="submit">Delete User</button>
+                </form>
+
+                <hr>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
