@@ -4,6 +4,6 @@ ok ko team :bitmasters
 git clone https://github.com/cloudsoftwareoff/code-de-nuit-
 
 
-''pip install -r requirements.txt''
+`pip install -r requirements.txt`|
 
 python app.py
